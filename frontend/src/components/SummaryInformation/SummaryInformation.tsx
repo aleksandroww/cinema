@@ -50,7 +50,7 @@ const SummaryInformation = () => {
                     </li>
                 ))}
             </ul>
-            <p>Total: {userSeats.length * (seats?.price || 15)}BGN</p>
+            <p className={styles.total}>Total: {userSeats.length * (seats?.price || 15)}BGN</p>
             <Button value='Confirm' handler={buttonHandler}></Button>
         </div>
     );
