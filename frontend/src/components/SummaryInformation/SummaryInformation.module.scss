@@ -6,7 +6,7 @@
     max-height: 100vh;
     width: 100%;
     font-size: 1.375rem;
-    overflow: scroll;
+    overflow-y: auto;
 
     .list {
         padding: 0;

@@ -16,7 +16,7 @@ const Legend = () => {
                 <p>Occupied</p>
             </li>
         </ul>
-    )
-}
+    );
+};
 
 export default Legend;

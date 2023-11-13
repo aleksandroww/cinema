@@ -8,9 +8,16 @@ type Props = {
     handler: (target: any) => void;
 };
 
-const Seat: React.FC<Props> = ({ row, seat, selectedSeats, occupiedSeats, handler }) => {
+const Seat: React.FC<Props> = ({
+    row,
+    seat,
+    selectedSeats,
+    occupiedSeats,
+    handler,
+}) => {
     const id = `${row}|${seat}`;
     const occupied = occupiedSeats.includes(id);
+
     return (
         <div
             onClick={(e) => handler(e.currentTarget)}

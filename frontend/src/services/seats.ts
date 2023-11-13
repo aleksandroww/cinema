@@ -10,15 +10,15 @@ export const getItems = async () => {
     }
 };
 
-export const setItems = async (occupiedSeats: string[]) => {
+export const updateItems = async (occupiedSeats: string[]) => {
     try {
         const res = await fetch(`${BACKEND_URL}/seats`, {
             method: 'PATCH',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ occupied: occupiedSeats })
+            body: JSON.stringify({ occupied: occupiedSeats }),
         });
         const data = await res.json();
         return data;

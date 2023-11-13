@@ -1,30 +1,21 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLoaderData } from 'react-router-dom';
 import styles from './SummaryInformation.module.scss';
-import { Seats } from '../../types/itemType';
-import Button from '../Button/Button';
 import { useUserSeats } from '../../contexts/SelectedSeatsContext';
+import { Seats } from '../../types/itemType';
+import { updateItems } from '../../services/seats';
+import Button from '../Button/Button';
 import swal from 'sweetalert';
-import { getItems, setItems } from '../../services/seats';
 
 const SummaryInformation = () => {
+    const data = useLoaderData() as Seats;
     const [seats, setSeats] = useState<Seats>();
     const { userSeats, setUserSeats } = useUserSeats();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchItems = async () => {
-            try {
-                const data = await getItems();
-
-                setSeats(data);
-            } catch (error) {
-                swal(`Something went wrong!`);
-            }
-        };
-
-        fetchItems();
-    }, []);
+        setSeats(data);
+    }, [data]);
 
     const buttonHandler = () => {
         const occupied: string[] = [
@@ -33,7 +24,7 @@ const SummaryInformation = () => {
         ];
         const fetchItems = async () => {
             try {
-                await setItems(occupied);
+                await updateItems(occupied);
             } catch (error) {
                 swal(`Something went wrong!`);
             }

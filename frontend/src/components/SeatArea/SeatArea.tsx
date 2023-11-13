@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLoaderData } from 'react-router-dom';
 import { useUserSeats } from '../../contexts/SelectedSeatsContext';
 import { Seats } from '../../types/itemType';
-import { getItems } from '../../services/seats';
 import styles from './SeatArea.module.scss';
 import MovieScreen from '../MovieScreen/MovieScreen';
 import Seat from './Seat/Seat';
@@ -11,27 +10,16 @@ import Button from '../Button/Button';
 import swal from 'sweetalert';
 
 const SeatArea = () => {
+    const data = useLoaderData() as Seats;
     const [seats, setSeats] = useState<Seats>();
     const { userSeats, setUserSeats } = useUserSeats();
     const [occupiedSeats, setOccupiedSeats] = useState<string[]>([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchItems = async () => {
-            try {
-                const data = await getItems();
-
-                setSeats(data);
-                console.log(data);
-
-                setOccupiedSeats(data.occupied);
-            } catch (error) {
-                swal(`Something went wrong!`);
-            }
-        };
-
-        fetchItems();
-    }, []);
+        setSeats(data);
+        setOccupiedSeats(data.occupied);
+    }, [data]);
 
     const buttonHandler = () => {
         if (!userSeats.length) {

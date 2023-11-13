@@ -1,9 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import UserSeatsProvider from './contexts/SelectedSeatsContext';
+import { getItems } from './services/seats';
 import Home from './pages/Home';
+import Summary from './pages/Summary';
 import RootLayout from './pages/Root';
 import SelectSeat from './pages/SelectSeats';
-import Summary from './pages/Summary';
-import UserSeatsProvider from './contexts/SelectedSeatsContext';
 
 const router = createBrowserRouter([
   {
@@ -14,10 +15,12 @@ const router = createBrowserRouter([
       {
         path: 'selectSeats',
         element: <SelectSeat />,
+        loader: getItems,
       },
       {
         path: 'summary',
         element: <Summary />,
+        loader: getItems,
       },
     ],
   },

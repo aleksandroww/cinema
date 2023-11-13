@@ -10,13 +10,13 @@ import {
 interface UserSeats {
     userSeats: string[];
     setUserSeats: Dispatch<SetStateAction<string[]>>;
-};
+}
 
 const UserSeatsContext = createContext<UserSeats | undefined>(undefined);
 
 interface Props {
     children: ReactNode;
-};
+}
 
 const UserSeatsProvider: React.FC<Props> = ({ children }) => {
     const [userSeats, setUserSeats] = useState<string[]>([]);
