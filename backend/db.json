@@ -1,0 +1,8 @@
+{
+  "seats": {
+    "rows": 10,
+    "seatsPerRow": 10,
+    "price": 15,
+    "occupied": []
+  }
+}

@@ -1,0 +1,20 @@
+.container {
+    margin: 0 auto;
+    padding: 1rem 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    max-width: 23.125rem;
+    width: 100%;
+
+    .seats {
+        margin: 1rem auto;
+        width: fit-content;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .info {
+        margin-bottom: 1rem;
+    }
+}
