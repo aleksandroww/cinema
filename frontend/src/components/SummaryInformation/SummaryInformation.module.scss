@@ -7,9 +7,22 @@
     width: 100%;
     font-size: 1.375rem;
     overflow-y: auto;
+    animation: slide 0.3s ease 0s 1 normal forwards;
 
     .list {
         padding: 0;
         list-style: none;
+    }
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }

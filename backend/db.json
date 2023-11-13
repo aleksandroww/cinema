@@ -3,6 +3,9 @@
     "rows": 10,
     "seatsPerRow": 10,
     "price": 15,
-    "occupied": []
+    "occupied": [
+      "10|5",
+      "10|6"
+    ]
   }
 }
