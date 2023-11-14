@@ -12,7 +12,7 @@ interface UserSeats {
     setUserSeats: Dispatch<SetStateAction<string[]>>;
 }
 
-const UserSeatsContext = createContext<UserSeats | undefined>(undefined);
+const UserSeatsContext = createContext<UserSeats>({} as UserSeats);
 
 interface Props {
     children: ReactNode;

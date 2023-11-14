@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLoaderData } from 'react-router-dom';
-import styles from './SummaryInformation.module.scss';
 import { useUserSeats } from '../../contexts/SelectedSeatsContext';
 import { Seats } from '../../types/itemType';
 import { updateItems } from '../../services/seats';
+import styles from './SummaryInformation.module.scss';
 import Button from '../Button/Button';
 import swal from 'sweetalert';
 
 const SummaryInformation = () => {
+    const navigate = useNavigate();
     const data = useLoaderData() as Seats;
     const [seats, setSeats] = useState<Seats>();
     const { userSeats, setUserSeats } = useUserSeats();
-    const navigate = useNavigate();
 
     useEffect(() => {
         setSeats(data);

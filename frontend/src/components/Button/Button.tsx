@@ -9,8 +9,8 @@ const Button: React.FC<Props> = ({ value, modifier, handler }) => {
                 onClick={handler}
                 className={`${styles.button} ${styles[`${modifier}`]}`}
             >
-                <div className={styles['button__line']}></div>
-                <div className={styles['button__line']}></div>
+                <div className={styles['button__line']} />
+                <div className={styles['button__line']} />
                 <span className={styles['button__text']}>{value}</span>
             </button>
         </div>

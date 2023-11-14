@@ -10,11 +10,11 @@ import Button from '../Button/Button';
 import swal from 'sweetalert';
 
 const SeatArea = () => {
+    const navigate = useNavigate();
     const data = useLoaderData() as Seats;
     const [seats, setSeats] = useState<Seats>();
     const { userSeats, setUserSeats } = useUserSeats();
     const [occupiedSeats, setOccupiedSeats] = useState<string[]>([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         setSeats(data);
@@ -40,10 +40,10 @@ const SeatArea = () => {
     };
 
     const rows = [...Array(seats?.rows)].map((callback, rowIndex) => (
-        <div key={Math.random()} className={styles.row}>
+        <div key={rowIndex} className={styles.row}>
             {[...Array(seats?.seatsPerRow)].map((callback, seatIndex) => (
                 <Seat
-                    key={Math.random()}
+                    key={seatIndex}
                     row={rowIndex + 1}
                     seat={seatIndex + 1}
                     selectedSeats={userSeats}

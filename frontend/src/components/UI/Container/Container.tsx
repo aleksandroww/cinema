@@ -1,6 +1,6 @@
 import styles from './Container.module.scss';
 
-type Props = { children: JSX.Element }
+type Props = { children: React.ReactNode }
 
 const Container: React.FC<Props> = ({ children }) => {
     return (
